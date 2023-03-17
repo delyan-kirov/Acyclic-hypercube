@@ -1,0 +1,48 @@
+MINION 3
+# CSETopLevel_number = 0
+# CSETopLevel_eliminated_expressions = 0
+# CSETopLevel_total_size = 0
+# CSE_active_number = 0
+# CSE_active_eliminated_expressions = 0
+# CSE_active_total_size = 0
+**VARIABLES**
+DISCRETE C_FunctionND_00001_00003 #
+{0..1}
+DISCRETE C_FunctionND_00002_00003 #
+{0..1}
+DISCRETE C_FunctionND_00003_00001 #
+{0..1}
+DISCRETE C_FunctionND_00003_00002 #
+{0..1}
+BOOL aux0 #(1=C_FunctionND_00001_00003)
+BOOL aux1 #(C_FunctionND_00002_00003=1)
+BOOL aux2 #(C_FunctionND_00003_00001=1)
+BOOL aux3 #(C_FunctionND_00003_00002=1)
+**TUPLELIST**
+lattice_FunctionND 4 4
+0 1 1 0 
+1 0 0 1 
+1 0 0 1 
+0 1 1 0 
+**VARIABLES**
+ALIAS lattice_FunctionND[4,4]=[[0, 1, 1, 0], [1, 0, 0, 1], [1, 0, 0, 1], [0, 1, 1, 0]]
+**SEARCH**
+PRINT[[C_FunctionND_00001_00003],[C_FunctionND_00002_00003],[C_FunctionND_00003_00001],[C_FunctionND_00003_00002]]
+VARORDER STATIC [C_FunctionND_00001_00003, C_FunctionND_00002_00003, C_FunctionND_00003_00001, C_FunctionND_00003_00002]
+**CONSTRAINTS**
+reify(w-literal(C_FunctionND_00001_00003,1), aux0)
+reify(w-literal(C_FunctionND_00002_00003,1), aux1)
+reify(w-literal(C_FunctionND_00003_00001,1), aux2)
+reify(w-literal(C_FunctionND_00003_00002,1), aux3)
+watched-or({w-literal(C_FunctionND_00003_00001,1),w-literal(C_FunctionND_00001_00003,1)})
+watched-or({w-literal(C_FunctionND_00003_00002,1),w-literal(C_FunctionND_00002_00003,1)})
+reifyimply(w-literal(C_FunctionND_00003_00001,0), aux0)
+reifyimply(w-literal(C_FunctionND_00003_00002,0), aux1)
+reifyimply(w-literal(C_FunctionND_00001_00003,0), aux2)
+reifyimply(w-literal(C_FunctionND_00002_00003,0), aux3)
+watched-or({diseq(0,C_FunctionND_00001_00003),diseq(C_FunctionND_00002_00003,0)})
+watched-or({diseq(0,C_FunctionND_00001_00003),diseq(C_FunctionND_00002_00003,0),watched-and({diseq(1,C_FunctionND_00001_00003),diseq(C_FunctionND_00002_00003,1)})})
+watched-or({diseq(C_FunctionND_00003_00001,1),diseq(1,C_FunctionND_00001_00003)})
+watched-or({diseq(C_FunctionND_00003_00002,1),diseq(C_FunctionND_00002_00003,1)})
+watched-or({diseq(C_FunctionND_00003_00001,1),diseq(C_FunctionND_00003_00002,1),diseq(1,C_FunctionND_00001_00003),diseq(C_FunctionND_00002_00003,1)})
+**EOF**

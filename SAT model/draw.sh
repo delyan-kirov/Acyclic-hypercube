@@ -18,6 +18,7 @@ echo "running nauty"
 
 new_time=$(date +%s.%3N)
 reelapsed=$(echo "scale=3; $new_time - $restart_time" | bc)
+python3 gap.py
 echo "It took "$reelapsed "to remove isomorphic images."
 
 echo "running python"

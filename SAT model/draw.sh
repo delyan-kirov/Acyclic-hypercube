@@ -2,9 +2,11 @@
 start_time=$(date +%s.%3N)
 
 python3 lattice.py
+python3 cycles.py
 
 echo "solving lattice"
 
+#conjure solve -ac --number-of-solutions=all boolean.essence n.param
 conjure solve -ac --number-of-solutions=all boolean.essence n.param
 
 end_time=$(date +%s.%3N)
@@ -29,4 +31,5 @@ find -iname '*.solution' -type f -print0  | xargs --null -n 100 rm -vrf | wc -l
 find -iname '*.param' -type f -print0  | xargs --null -n 100 rm -vrf | wc -l
 find -iname '*.txt' -type f -print0  | xargs --null -n 100 rm -vrf | wc -l
 find -iname '*.cover' -type f -print0  | xargs --null -n 100 rm -vrf | wc -l
+rm boolean_copy.essence
 #rm geo_sym.essence

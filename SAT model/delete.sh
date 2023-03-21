@@ -10,3 +10,4 @@ rm n.param
 rm -r conjure-output
 rm boolean_copy.essence
 rm result.g
+rm workspace.g

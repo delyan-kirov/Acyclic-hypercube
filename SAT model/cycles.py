@@ -13,7 +13,6 @@ def get_n():
     return int(n)
 
 # %%
-#def add_constraints(n:int):
 def make_variables(n:int):
      variables = []
      cycles = [2*i for i in range(2,2**(n-1)+1)]
@@ -76,6 +75,7 @@ def make(n):
           
 # %%
 # main
+# Adds SAT constraints to remove cycles and generates a new copy of the SAT model in boolean_copy.essence
 n = int(math.log(get_n(), 2))
 with open ("cycles.txt", 'w') as f:
      f.write(make(n))

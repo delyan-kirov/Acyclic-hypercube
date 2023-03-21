@@ -15,16 +15,20 @@ echo "It took " $elapsed "to solve the model"
 
 restart_time=$(date +%s.%3N)
 
-echo "running nauty"
-#python3 nauty.py
+python3 gap.py
 
+gap -b -q << EOI
+Read("data.g");
+quit;
+EOI
+
+echo "Number of isomorphic clases is" $(cat result.g)
 new_time=$(date +%s.%3N)
 reelapsed=$(echo "scale=3; $new_time - $restart_time" | bc)
-python3 gap.py
 echo "It took "$reelapsed "to remove isomorphic images."
 
-echo "running python"
-python3 graph.py
+#echo "running python"
+#python3 graph.py
 
 echo "deleting solutions"
 find -iname '*.solution' -type f -print0  | xargs --null -n 100 rm -vrf | wc -l
@@ -32,4 +36,5 @@ find -iname '*.param' -type f -print0  | xargs --null -n 100 rm -vrf | wc -l
 find -iname '*.txt' -type f -print0  | xargs --null -n 100 rm -vrf | wc -l
 find -iname '*.cover' -type f -print0  | xargs --null -n 100 rm -vrf | wc -l
 rm boolean_copy.essence
+rm result.g
 #rm geo_sym.essence

@@ -4,6 +4,7 @@ import os
 import re
 
 # %%
+#Creates the adj matrix arrays for the graphs
 def make_data(files):
     with open(files, "r") as file:
         cover = file.read()
@@ -17,6 +18,7 @@ def make_data(files):
     return list(graph_data)
 
 # %%
+#Creates the data for gap to read and do computations.
 def gap_input(data:list, count:int):
      dimension = int(math.sqrt(len(data)))
      vectors = [data[i:i+dimension] for i in range(0, len(data), dimension)]
@@ -28,12 +30,14 @@ def gap_input(data:list, count:int):
      return gap_data
 
 # %%
+# Adds the graphs to an array in gap
 def init_graphs_array(filename:str):
     with open(filename, 'r') as f:
         data = f.read()
         f.close
 
     graphs = []
+    #Annoying pattern matching to find the graphs and store them in an array for gap. 
     while data != "":
         start = '; \n'
         end = ' := '
@@ -50,6 +54,12 @@ def init_graphs_array(filename:str):
 # %%
 # main
 count = 0
+funct = ""
+
+with open("function.g", 'r') as f:
+        funct = f.read()
+        f.close
+
 gap = "LoadPackage(\"Digraph\"); \n"
 for files in os.listdir("."):
         count = count + 1
@@ -62,4 +72,5 @@ with open('data.g', 'w') as f:
 init_graphs_array("data.g")
 with open("data.g", 'a') as f:
         f.write(init_graphs_array("data.g"))
+        f.write(funct)
         f.close

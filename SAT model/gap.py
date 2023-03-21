@@ -24,7 +24,7 @@ def gap_input(data:list, count:int):
      for vec in vectors:
           matrix.append(list(map(int, vec)))
 
-     gap_data = "G" + str(count) + " := " + "Digraph(" + str(matrix) + ");" + "\n"
+     gap_data = "G" + str(count) + " := " + "DigraphByAdjacencyMatrix(" + str(matrix) + ");" + "\n"
      return gap_data
 
 

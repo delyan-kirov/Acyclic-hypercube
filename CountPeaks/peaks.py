@@ -21,8 +21,8 @@ def conjuncts (variables) -> str:
     n = len(variables)
     constraints = []
     # forAllai = variables.copy()
-    # "exists i:N. forAll k:N. (C((k,i)) = 0)"
-    forAllai = list(map(lambda i: "(C((k," + i + ")) = 0)", variables))
+    # "exists i:N. forAll k:N. (C((i,k)) = 0)"
+    forAllai = list(map(lambda i: "(C((" + i + ",k)) = 0)", variables))
 
     for element in forAllai[:-1]:
         constraints.append(element + " /\\ ")

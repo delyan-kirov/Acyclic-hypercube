@@ -1,4 +1,4 @@
-
+DigraphsUseBliss();
 RemoveIsoImages := function(GraphList, GraphImage)
 local len, i, element;
 i := 0;
@@ -34,6 +34,14 @@ od;
 
 DAGs := RemoveCyclic(IsoFreeGraphs);
 
+DagAutGps := [];
+DagAutSize := [];
+for elements in DAGs do
+Add(DagAutGps, AutomorphismGroup(elements));
+Add(DagAutSize, Size(AutomorphismGroup(elements)));
+od;
+
+Print(DagAutSize);
 SaveWorkspace("workspace.g");
 PrintTo("result.g", Length(DAGs));
 quit;

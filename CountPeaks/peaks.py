@@ -2,12 +2,19 @@
 import functools
 
 #%%
+def productPairs (vecR, vecL):
+     return [(left,right) for i, right in
+            enumerate(vecR) for j, left in
+            enumerate(vecL) if (i != j)]
+
+#%%
 def equalities (variables) -> str:
     pairs = []
     constraints = []
-    for i in range (len(variables)-1): pairs.append((variables[i], variables[i+1]))
+    pairs = productPairs(variables, variables)
+
     for i, j in pairs: 
-        if(j != ("a" + str(len(variables) - 1))):
+        if(pairs[-1] != (i,j)):
             constraints.append("!(" + i + " = " + j + ")" + " /\\ " )
         else: constraints.append("!(" + i + " = " + j + ")")
 

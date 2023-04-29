@@ -1,12 +1,26 @@
 # %%
-import math
+from functools import reduce
 
 # %%
-#Do something in this block. 
-#One RSE face. Exists a1, a2, a3, a4 : N. a1 -> a2, a1 -> a3, a4 -> a3, a4 -> a2
-#Two RSE faces. Exists a1, a2, a3, a4, a5, a6, a7, a8 : N. (a1 -> a2), (a1 -> a3), (a4 -> a2), (a4 -> a3) ; 
-#                                                          (a5 -> a6), (a5 -> a7), (a8 -> a6), (a8 -> a7) ;
+"""One RSE face. Exists a1, a2, a3, a4 : N. a1 -> a2, a1 -> a3, a4 -> a3, a4 -> a2
+Two RSE faces. Exists a1, a2, a3, a4, a5, a6, a7, a8 : N. (a1 -> a2), (a1 -> a3), (a4 -> a2), (a4 -> a3) ; 
+                                                          (a5 -> a6), (a5 -> a7), (a8 -> a6), (a8 -> a7) ;
+should be C((a,b)) not (a -> b)
+"""
 
+#%%
+def clearFlatten (string):
+    result = [x.strip() for x in string.split(',')]
+    return result
+
+#%%
+def addConjunction (list):
+    result = ""
+    for item in list:
+        result += (item + " /\ ")
+    result = result[:-3]
+    return result
+        
 #%%
 def genPairs (offset):
     basePairs = map(lambda x : x + 4 * offset, [1,2,3,4])
@@ -15,11 +29,83 @@ def genPairs (offset):
     edges = map(lambda x : x + 4 * offset, [1,2,1,3,4,2,4,3])
     edges = list(map(lambda x : "a" + str(x), edges))
     edges = [(edges[i], edges[i+1]) for i in range (0, len(edges), 2)]
+    
+    constraints = []
+    for i in range (0, len(edges)):
+        constraints.append("(C((" + str(edges[i][0]) + ", " + str(edges[i][1]) + ")) = 1) /\ ")
+        
+    constraints = reduce(lambda x, y: x + y, constraints)
+    points = ""
+    basePairs = list(basePairs)
+    
+    for i in range (0, len(basePairs)):
+        if (i == len(basePairs) - 1):
+            points += str(basePairs[i])
+            break
+        points += str(basePairs[i]) + ", "
 
-    return (list(basePairs), list(edges))
+    # print(points)
+    return (points, constraints)
 
+#%% (a1 != a2) and (a2 != a3) and so on
+def comparisons (points):
+    compList = []
+    for i in range (len(points)):
+        for j in range (len(points)):
+            if (i > j):
+                compList.append((points[i], points[j]))
+    # print (compList)
+    constraints = []
+    
+    for pair in compList:
+        constraint = "!(" + str(pair[0]) + " = " + str(pair[1]) + ")"
+        constraints.append(constraint)
+    
+    return constraints
+
+#%%
+def build(n):
+    points = ""
+    constraints = ""
+    
+    for i in range(0,n):
+        if (i == 0):
+            points += (genPairs(i))[0]
+            constraints += (genPairs(i))[1]
+            continue
+        points += ", " + (genPairs(i))[0]
+        constraints += (genPairs(i))[1]
+    
+    constraints = constraints[:-3]
+    equalities = addConjunction(comparisons(clearFlatten(points)))
+ 
+    result = "exists " + points + " : N. " + "(" + equalities + ")" + " /\ \n " + "(" + constraints + ")"
+    return result
+    
 # %%
 # main
-offset = 1
-result = genPairs(offset)
-print (result)
+rseFaceNumber = int (input("How many RSE faces are you interested in? \n"))
+rseFaces = build(rseFaceNumber)
+
+with open("boolean.essence", 'r') as file:
+      data = file.read()
+      file.close()
+data = data + "\n" + rseFaces
+
+with open("booleanPeaks.essence", 'w') as file:
+      file.write(data)
+      file.close()
+
+#%%
+# notes
+"""
+The script as it is only creates constraints for at least n number of RSE faces,
+not exactly n number of faces. More constraints need to be given on top of these.
+"""
+"""
+When comparing points from different faces, only one comparison is needed not all
+points need to be different, currently too many comparisons are being made
+"""
+"""
+The code could be a little better and it's probably worth cleaning eventually. 
+"""

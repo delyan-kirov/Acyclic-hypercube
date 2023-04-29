@@ -71,3 +71,5 @@ data = data + "\n" + peaksConstr
 with open("booleanPeaks.essence", 'w') as file:
       file.write(data)
       file.close()
+
+#The script does not guarantee exactly n peaks, only at least n peaks. 

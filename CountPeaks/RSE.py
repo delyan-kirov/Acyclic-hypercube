@@ -48,19 +48,34 @@ def genPairs (offset):
     return (points, constraints)
 
 #%% (a1 != a2) and (a2 != a3) and so on
-def comparisons (points):
-    compList = []
-    for i in range (len(points)):
-        for j in range (len(points)):
-            if (i > j):
-                compList.append((points[i], points[j]))
-    # print (compList)
-    constraints = []
+# def comparisons (points):
+#     compList = []
+#     for i in range (len(points)):
+#         for j in range (len(points)):
+#             if (i > j):
+#                 compList.append((points[i], points[j]))
+#     # print (compList)
+#     constraints = []
     
+#     for pair in compList:
+#         constraint = "!(" + str(pair[0]) + " = " + str(pair[1]) + ")"
+#         constraints.append(constraint)
+    
+#     return constraints
+
+#%%
+def comparisons(points):
+    if len(points) <= 4:
+        return (["!(a1 = a2)"])
+    else:
+        compList = []
+        for i in range(0, len(points)-4, 4):
+            compList.append((points[i], points[i+4]))
+            
+    constraints = []
     for pair in compList:
         constraint = "!(" + str(pair[0]) + " = " + str(pair[1]) + ")"
         constraints.append(constraint)
-    
     return constraints
 
 #%%
@@ -84,6 +99,7 @@ def build(n):
     
 # %%
 # main
+# print(string_pairs(["a1","a2","a3","a4","a5","a6","a7","a8"]))
 rseFaceNumber = int (input("How many RSE faces are you interested in? \n"))
 rseFaces = build(rseFaceNumber)
 

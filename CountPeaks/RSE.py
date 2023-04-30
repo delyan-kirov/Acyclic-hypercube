@@ -78,6 +78,27 @@ def comparisons(points):
         constraints.append(constraint)
     return constraints
 
+def uniqueness(points):
+    """
+    Given a1, a2, a3, a4...
+    the following is false {
+        exist b1, b2, b3, b4 st
+            (b1 -> b2), (b1 -> b3), (b4 -> b2), (b4 -> b3)
+            (b1 != a1) and (b1 != a2)...
+    """
+    B = "b1, b2, b3, b4"
+    BRSEFaces = "( (C((b1,b2)) = 1) /\ (C((b1,b3)) = 1) /\ (C((b4,b2)) = 1) /\ (C((b4,b3)) = 1) )"
+    comparisons = []
+    
+    for p in points:
+        comparisons.append("!(" + p + " = b1)")
+    
+    comparisons = addConjunction(comparisons)
+    constraint = "exists " + B + " : N. " + BRSEFaces + " /\ (" + comparisons + ")"
+    constraint = "!(" + constraint + ")"
+    return constraint
+            
+
 #%%
 def build(n):
     points = ""
@@ -95,6 +116,9 @@ def build(n):
     equalities = addConjunction(comparisons(clearFlatten(points)))
  
     result = "exists " + points + " : N. " + "(" + equalities + ")" + " /\ \n " + "(" + constraints + ")"
+    uniqueConst = uniqueness(clearFlatten(points))
+    result += " /\ \n " + uniqueConst
+    # print(result)
     return result
     
 # %%
@@ -102,6 +126,8 @@ def build(n):
 # print(string_pairs(["a1","a2","a3","a4","a5","a6","a7","a8"]))
 rseFaceNumber = int (input("How many RSE faces are you interested in? \n"))
 rseFaces = build(rseFaceNumber)
+
+# uniqueness(["a1","a2","a3","a4"])
 
 with open("boolean.essence", 'r') as file:
       data = file.read()
@@ -117,10 +143,11 @@ with open("booleanPeaks.essence", 'w') as file:
 """
 The script as it is only creates constraints for at least n number of RSE faces,
 not exactly n number of faces. More constraints need to be given on top of these.
+There does not exist a face which is different from the one listed. 
 """
 """
 When comparing points from different faces, only one comparison is needed not all
-points need to be different, currently too many comparisons are being made
+points need to be different, currently too many comparisons are being made (done)
 """
 """
 The code could be a little better and it's probably worth cleaning eventually. 

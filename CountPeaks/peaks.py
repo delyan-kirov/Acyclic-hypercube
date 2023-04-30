@@ -85,11 +85,10 @@ def parse (PeakNumber : int) -> str:
     equalities_ai = equalities(variablesCopy)
     conjuncts_ai = conjuncts(variablesCopy)
     uniqueConst = uniqueness(variablesCopy)
-    
-    if (PeakNumber == 0):
-        data = "exists a0:N. (a0 = a0) /\ (forAll k:N. ((C((a0,k)) = 0)))"
 
-    data = data + equalities_ai + " /\\ " + conjuncts_ai + " /\ \n" + uniqueConst +","
+    data = data + equalities_ai + " /\\ " + conjuncts_ai + " /\ \n" + uniqueConst + ","
+    if (PeakNumber == 0):
+        data = "exists a0:N. (forAll k:N. ((C((a0,k)) = 0)))" + " /\ \n" + uniqueConst + ","
     return data
 # %%
 # main

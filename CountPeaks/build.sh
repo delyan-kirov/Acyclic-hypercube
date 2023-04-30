@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 python3 lattice.py
-#python3 peaks.py
+
+python3 peaks.py
 python3 RSE.py
 
-conjure solve booleanPeaks.essence n.param
+#conjure solve booleanPeaks.essence n.param
 
 rm n.param
 #rm booleanPeaks.essence

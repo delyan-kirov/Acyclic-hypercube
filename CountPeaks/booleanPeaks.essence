@@ -13,6 +13,10 @@ forAll i,j: N. (C((i,j)) = 1) -> (C((j,i)) = 0),
 
 $Peaks
 
+exists a0:N. (a0 = a0) /\ (forAll k:N. ((C((a0,k)) = 0)))() /\ (forAll k:N. ((C((a0,k)) = 0))) /\ 
+!(exists b : N. (forAll k:N. (C((b,k)) = 0)) /\ !(a0 = b) ),
+
+$RSE faces 
 exists a1, a2, a3, a4 : N. (!(a1 = a2) ) /\ 
  ((C((a1, a2)) = 1) /\ (C((a1, a3)) = 1) /\ (C((a4, a2)) = 1) /\ (C((a4, a3)) = 1) ) /\ 
  !(exists b1, b2, b3, b4 : N. ( (C((b1,b2)) = 1) /\ (C((b1,b3)) = 1) /\ (C((b4,b2)) = 1) /\ (C((b4,b3)) = 1) ) /\ (!(a1 = b1) /\ !(a2 = b1) /\ !(a3 = b1) /\ !(a4 = b1) ))

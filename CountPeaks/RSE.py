@@ -22,6 +22,7 @@ def addConjunction (list):
     return result
         
 #%%
+# Generates a pair of vectors, one containing points, the other containing constraints
 def genPairs (offset):
     basePairs = map(lambda x : x + 4 * offset, [1,2,3,4])
     basePairs = map(lambda x : "a" + str(x), basePairs)
@@ -44,7 +45,6 @@ def genPairs (offset):
             break
         points += str(basePairs[i]) + ", "
 
-    # print(points)
     return (points, constraints)
 
 #%%
@@ -61,7 +61,7 @@ def comparisons(points):
         constraint = "!(" + str(pair[0]) + " = " + str(pair[1]) + ")"
         constraints.append(constraint)
     return constraints
-
+#%%
 def uniqueness(points):
     """
     Given a1, a2, a3, a4...
@@ -81,7 +81,16 @@ def uniqueness(points):
     constraint = "exists " + B + " : N. " + BRSEFaces + " /\ (" + comparisons + ")"
     constraint = "!(" + constraint + ")"
     return constraint
-            
+
+#%%
+# Generate constraints that ensure that each 4-tuples of points are unique in an RSE face
+def genUniqueFaces (points):
+    pairs = []
+    for i in range(0, len(points)):
+        for j in range(i + 1, len(points)):
+            constraint = "!(" + str(points[i]) + " = " + str(points[j]) + ")"
+            pairs.append(constraint)
+    return addConjunction(pairs)
 
 #%%
 def build(n):
@@ -98,11 +107,21 @@ def build(n):
     
     constraints = constraints[:-3]
     equalities = addConjunction(comparisons(clearFlatten(points)))
- 
-    result = "exists " + points + " : N. " + "(" + equalities + ")" + " /\ \n " + "(" + constraints + ")"
+    
+    uniqueRSEfaces = []
+    for i in range (0,len(points)):
+         uniqueRSEfaces.append(genUniqueFaces(clearFlatten(points)[i:i+4]))
+    uniqueRSEfaces = [i for i in uniqueRSEfaces if i != ""]
+    uniqueRSEfaces = addConjunction(uniqueRSEfaces)
+    
+    # likely a problem here, make sure /\ is placed everywhere
+    
+    result = "exists " + points + " : N. " + "(" + equalities + ")" \
+        + " /\ \n " + "(" + uniqueRSEfaces + ")" \
+        + " /\ \n " + "(" + constraints + ")"
     uniqueConst = uniqueness(clearFlatten(points))
     result += " /\ \n " + uniqueConst
-    # print(result)
+    
     return result
     
 # %%

@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-python3 lattice.py
+source geometric_lattices/bin/activate
 
+python3 lattice.py
 python3 peaks.py
 python3 RSE.py
 

@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
-source geometric_lattices/bin/activate
+source ./hypercube/bin/activate
 
 python3 lattice.py
-python3 peaks.py
-python3 RSE.py
+python3 constraints.py
 
-conjure solve booleanPeaks.essence n.param
+# conjure solve booleanC.essence n.param
 
 rm n.param
-#rm booleanPeaks.essence
-# conjure solve -ac --number-of-solutions=all --solver=nbc_minisat_all boolean1.essence n.param 
+# conjure solve -ac --number-of-solutions=all --solver=nbc_minisat_all booleanC.essence n.param 

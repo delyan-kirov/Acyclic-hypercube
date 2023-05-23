@@ -6,9 +6,11 @@ The bash script make.sh takes input n the size of the hypercube Q(n) with 2**n v
 
 # How to use
 Run the bash script:
+
     build.sh
     
 This will automatically activate the local python environment hypercube. You can also connect to the env with:
+
     source ./hypercube/bin/activate
 
 # Required packages

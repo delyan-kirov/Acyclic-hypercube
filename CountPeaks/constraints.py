@@ -12,8 +12,8 @@ def update_essence_file(input_file: str, output_file: str, new_p: str, new_f: st
         contents = file.read()
 
     # Replace the values of p and f with the user input values
-    contents = contents.replace("p >= 2", f"p >= {new_p}")
-    contents = contents.replace("f >= 1", f"f >= {new_f}")
+    contents = contents.replace("p = 2", f"p = {new_p}")
+    contents = contents.replace("f = 1", f"f = {new_f}")
 
     # Write the updated contents to the output file
     with open(output_file, "w") as file:

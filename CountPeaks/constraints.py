@@ -21,7 +21,7 @@ def update_essence_file(input_file: str, output_file: str, new_p: str, new_f: st
 
 # Example usage
 input_file = "boolean.essence"
-output_file = "essenceC.essence"
+output_file = "booleanC.essence"
 new_p = input("Enter a new value for p: ")
 new_f = input("Enter a new value for f: ")
 update_essence_file(input_file, output_file, new_p, new_f)

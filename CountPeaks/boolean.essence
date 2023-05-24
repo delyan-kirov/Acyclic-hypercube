@@ -44,13 +44,13 @@ $Peaks
 
 $RSE faces
 
-(sum a1, a2, a3, a4 : N. toInt(a2 < a3 /\ a1 < a4 /\ allDiff([a1,a2,a3,a4]) /\
+(sum a1, a2, a3, a4 : N. toInt( (a2 < a3) /\ (a1 < a4) /\ allDiff([a1,a2,a3,a4]) /\ 
 
- ((C((a1, a2)) = 1) /\ (C((a1, a3)) = 1) /\ (C((a4, a2)) = 1) /\ (C((a4, a3)) = 1) ) )) = f,
-
-
+((C((a1, a2)) = 1) /\ (C((a1, a3)) = 1) /\ (C((a4, a2)) = 1) /\ (C((a4, a3)) = 1) ) )) = f,
 
 
- p >= 2,
 
- f >= 1
+
+p >= 2,
+
+f >= 1,

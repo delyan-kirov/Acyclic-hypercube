@@ -1,0 +1,205 @@
+MINION 3
+# CSETopLevel_number = 0
+# CSETopLevel_eliminated_expressions = 0
+# CSETopLevel_total_size = 0
+# CSE_active_number = 0
+# CSE_active_eliminated_expressions = 0
+# CSE_active_total_size = 0
+**VARIABLES**
+DISCRETE C_FunctionND_00000_00001 #
+{0..1}
+DISCRETE C_FunctionND_00000_00002 #
+{0..1}
+DISCRETE C_FunctionND_00000_00003 #
+{0..1}
+DISCRETE C_FunctionND_00001_00000 #
+{0..1}
+DISCRETE C_FunctionND_00001_00004 #
+{0..1}
+DISCRETE C_FunctionND_00001_00005 #
+{0..1}
+DISCRETE C_FunctionND_00002_00000 #
+{0..1}
+DISCRETE C_FunctionND_00002_00004 #
+{0..1}
+DISCRETE C_FunctionND_00002_00006 #
+{0..1}
+DISCRETE C_FunctionND_00003_00000 #
+{0..1}
+DISCRETE C_FunctionND_00003_00005 #
+{0..1}
+DISCRETE C_FunctionND_00003_00006 #
+{0..1}
+DISCRETE C_FunctionND_00004_00001 #
+{0..1}
+DISCRETE C_FunctionND_00004_00002 #
+{0..1}
+DISCRETE C_FunctionND_00004_00007 #
+{0..1}
+DISCRETE C_FunctionND_00005_00001 #
+{0..1}
+DISCRETE C_FunctionND_00005_00003 #
+{0..1}
+DISCRETE C_FunctionND_00005_00007 #
+{0..1}
+DISCRETE C_FunctionND_00006_00002 #
+{0..1}
+DISCRETE C_FunctionND_00006_00003 #
+{0..1}
+DISCRETE C_FunctionND_00006_00007 #
+{0..1}
+DISCRETE C_FunctionND_00007_00004 #
+{0..1}
+DISCRETE C_FunctionND_00007_00005 #
+{0..1}
+DISCRETE C_FunctionND_00007_00006 #
+{0..1}
+DISCRETE p #
+{2..7}
+DISCRETE f #
+{1..11}
+BOOL aux0 #((0=C_FunctionND_00006_00002) /\ (0=C_FunctionND_00006_00003) /\ (0=C_FunctionND_00006_00007))
+BOOL aux1 #((0=C_FunctionND_00001_00000) /\ (0=C_FunctionND_00001_00004) /\ (0=C_FunctionND_00001_00005))
+BOOL aux2 #((C_FunctionND_00007_00004=0) /\ (C_FunctionND_00007_00005=0) /\ (C_FunctionND_00007_00006=0))
+BOOL aux3 #((C_FunctionND_00003_00000=0) /\ (C_FunctionND_00003_00005=0) /\ (C_FunctionND_00003_00006=0))
+BOOL aux4 #((C_FunctionND_00002_00000=0) /\ (C_FunctionND_00002_00004=0) /\ (C_FunctionND_00002_00006=0))
+BOOL aux5 #((0=C_FunctionND_00004_00001) /\ (0=C_FunctionND_00004_00002) /\ (0=C_FunctionND_00004_00007))
+BOOL aux6 #((0=C_FunctionND_00005_00001) /\ (0=C_FunctionND_00005_00003) /\ (0=C_FunctionND_00005_00007))
+BOOL aux7 #((0=C_FunctionND_00000_00001) /\ (0=C_FunctionND_00000_00002) /\ (0=C_FunctionND_00000_00003))
+BOOL aux8 #((1=C_FunctionND_00001_00004) /\ (1=C_FunctionND_00001_00005) /\ (C_FunctionND_00007_00004=1) /\ (C_FunctionND_00007_00005=1))
+BOOL aux9 #((C_FunctionND_00002_00004=1) /\ (C_FunctionND_00002_00006=1) /\ (C_FunctionND_00007_00004=1) /\ (C_FunctionND_00007_00006=1))
+BOOL aux10 #((1=C_FunctionND_00005_00003) /\ (1=C_FunctionND_00005_00007) /\ (1=C_FunctionND_00006_00003) /\ (1=C_FunctionND_00006_00007))
+BOOL aux11 #((1=C_FunctionND_00001_00000) /\ (1=C_FunctionND_00001_00004) /\ (C_FunctionND_00002_00000=1) /\ (C_FunctionND_00002_00004=1))
+BOOL aux12 #((1=C_FunctionND_00000_00002) /\ (1=C_FunctionND_00000_00003) /\ (1=C_FunctionND_00006_00002) /\ (1=C_FunctionND_00006_00003))
+BOOL aux13 #((C_FunctionND_00003_00000=1) /\ (C_FunctionND_00003_00005=1) /\ (1=C_FunctionND_00001_00000) /\ (1=C_FunctionND_00001_00005))
+BOOL aux14 #((1=C_FunctionND_00004_00002) /\ (1=C_FunctionND_00004_00007) /\ (1=C_FunctionND_00006_00002) /\ (1=C_FunctionND_00006_00007))
+BOOL aux15 #((C_FunctionND_00003_00005=1) /\ (C_FunctionND_00003_00006=1) /\ (C_FunctionND_00007_00005=1) /\ (C_FunctionND_00007_00006=1))
+BOOL aux16 #((C_FunctionND_00003_00000=1) /\ (C_FunctionND_00003_00006=1) /\ (C_FunctionND_00002_00000=1) /\ (C_FunctionND_00002_00006=1))
+BOOL aux17 #((1=C_FunctionND_00000_00001) /\ (1=C_FunctionND_00000_00003) /\ (1=C_FunctionND_00005_00001) /\ (1=C_FunctionND_00005_00003))
+BOOL aux18 #((1=C_FunctionND_00004_00001) /\ (1=C_FunctionND_00004_00002) /\ (1=C_FunctionND_00000_00001) /\ (1=C_FunctionND_00000_00002))
+BOOL aux19 #((1=C_FunctionND_00004_00001) /\ (1=C_FunctionND_00004_00007) /\ (1=C_FunctionND_00005_00001) /\ (1=C_FunctionND_00005_00007))
+BOOL aux20 #(1=C_FunctionND_00000_00001)
+BOOL aux21 #(1=C_FunctionND_00000_00002)
+BOOL aux22 #(1=C_FunctionND_00000_00003)
+BOOL aux23 #(1=C_FunctionND_00001_00000)
+BOOL aux24 #(1=C_FunctionND_00001_00004)
+BOOL aux25 #(1=C_FunctionND_00001_00005)
+BOOL aux26 #(C_FunctionND_00002_00000=1)
+BOOL aux27 #(C_FunctionND_00002_00004=1)
+BOOL aux28 #(C_FunctionND_00002_00006=1)
+BOOL aux29 #(C_FunctionND_00003_00000=1)
+BOOL aux30 #(C_FunctionND_00003_00005=1)
+BOOL aux31 #(C_FunctionND_00003_00006=1)
+BOOL aux32 #(1=C_FunctionND_00004_00001)
+BOOL aux33 #(1=C_FunctionND_00004_00002)
+BOOL aux34 #(1=C_FunctionND_00004_00007)
+BOOL aux35 #(1=C_FunctionND_00005_00001)
+BOOL aux36 #(1=C_FunctionND_00005_00003)
+BOOL aux37 #(1=C_FunctionND_00005_00007)
+BOOL aux38 #(1=C_FunctionND_00006_00002)
+BOOL aux39 #(1=C_FunctionND_00006_00003)
+BOOL aux40 #(1=C_FunctionND_00006_00007)
+BOOL aux41 #(C_FunctionND_00007_00004=1)
+BOOL aux42 #(C_FunctionND_00007_00005=1)
+BOOL aux43 #(C_FunctionND_00007_00006=1)
+**TUPLELIST**
+lattice_FunctionND 8 8
+0 1 1 1 0 0 0 0 
+1 0 0 0 1 1 0 0 
+1 0 0 0 1 0 1 0 
+1 0 0 0 0 1 1 0 
+0 1 1 0 0 0 0 1 
+0 1 0 1 0 0 0 1 
+0 0 1 1 0 0 0 1 
+0 0 0 0 1 1 1 0 
+**VARIABLES**
+ALIAS lattice_FunctionND[8,8]=[[0, 1, 1, 1, 0, 0, 0, 0], [1, 0, 0, 0, 1, 1, 0, 0], [1, 0, 0, 0, 1, 0, 1, 0], [1, 0, 0, 0, 0, 1, 1, 0], [0, 1, 1, 0, 0, 0, 0, 1], [0, 1, 0, 1, 0, 0, 0, 1], [0, 0, 1, 1, 0, 0, 0, 1], [0, 0, 0, 0, 1, 1, 1, 0]]
+**SEARCH**
+PRINT[[C_FunctionND_00000_00001],[C_FunctionND_00000_00002],[C_FunctionND_00000_00003],[C_FunctionND_00001_00000],[C_FunctionND_00001_00004],[C_FunctionND_00001_00005],[C_FunctionND_00002_00000],[C_FunctionND_00002_00004],[C_FunctionND_00002_00006],[C_FunctionND_00003_00000],[C_FunctionND_00003_00005],[C_FunctionND_00003_00006],[C_FunctionND_00004_00001],[C_FunctionND_00004_00002],[C_FunctionND_00004_00007],[C_FunctionND_00005_00001],[C_FunctionND_00005_00003],[C_FunctionND_00005_00007],[C_FunctionND_00006_00002],[C_FunctionND_00006_00003],[C_FunctionND_00006_00007],[C_FunctionND_00007_00004],[C_FunctionND_00007_00005],[C_FunctionND_00007_00006],[p],[f]]
+VARORDER STATIC [C_FunctionND_00000_00001, C_FunctionND_00000_00002, C_FunctionND_00000_00003, C_FunctionND_00001_00000, C_FunctionND_00001_00004, C_FunctionND_00001_00005, C_FunctionND_00002_00000, C_FunctionND_00002_00004, C_FunctionND_00002_00006, C_FunctionND_00003_00000, C_FunctionND_00003_00005, C_FunctionND_00003_00006, C_FunctionND_00004_00001, C_FunctionND_00004_00002, C_FunctionND_00004_00007, C_FunctionND_00005_00001, C_FunctionND_00005_00003, C_FunctionND_00005_00007, C_FunctionND_00006_00002, C_FunctionND_00006_00003, C_FunctionND_00006_00007, C_FunctionND_00007_00004, C_FunctionND_00007_00005, C_FunctionND_00007_00006, p, f]
+**CONSTRAINTS**
+reify(watched-and({w-literal(C_FunctionND_00006_00002,0),w-literal(C_FunctionND_00006_00003,0),w-literal(C_FunctionND_00006_00007,0)}), aux0)
+reify(watched-and({w-literal(C_FunctionND_00001_00000,0),w-literal(C_FunctionND_00001_00004,0),w-literal(C_FunctionND_00001_00005,0)}), aux1)
+reify(watched-and({w-literal(C_FunctionND_00007_00004,0),w-literal(C_FunctionND_00007_00005,0),w-literal(C_FunctionND_00007_00006,0)}), aux2)
+reify(watched-and({w-literal(C_FunctionND_00003_00000,0),w-literal(C_FunctionND_00003_00005,0),w-literal(C_FunctionND_00003_00006,0)}), aux3)
+reify(watched-and({w-literal(C_FunctionND_00002_00000,0),w-literal(C_FunctionND_00002_00004,0),w-literal(C_FunctionND_00002_00006,0)}), aux4)
+reify(watched-and({w-literal(C_FunctionND_00004_00001,0),w-literal(C_FunctionND_00004_00002,0),w-literal(C_FunctionND_00004_00007,0)}), aux5)
+reify(watched-and({w-literal(C_FunctionND_00005_00001,0),w-literal(C_FunctionND_00005_00003,0),w-literal(C_FunctionND_00005_00007,0)}), aux6)
+reify(watched-and({w-literal(C_FunctionND_00000_00001,0),w-literal(C_FunctionND_00000_00002,0),w-literal(C_FunctionND_00000_00003,0)}), aux7)
+reify(watched-and({w-literal(C_FunctionND_00001_00004,1),w-literal(C_FunctionND_00001_00005,1),w-literal(C_FunctionND_00007_00004,1),w-literal(C_FunctionND_00007_00005,1)}), aux8)
+reify(watched-and({w-literal(C_FunctionND_00002_00004,1),w-literal(C_FunctionND_00002_00006,1),w-literal(C_FunctionND_00007_00004,1),w-literal(C_FunctionND_00007_00006,1)}), aux9)
+reify(watched-and({w-literal(C_FunctionND_00005_00003,1),w-literal(C_FunctionND_00005_00007,1),w-literal(C_FunctionND_00006_00003,1),w-literal(C_FunctionND_00006_00007,1)}), aux10)
+reify(watched-and({w-literal(C_FunctionND_00001_00000,1),w-literal(C_FunctionND_00001_00004,1),w-literal(C_FunctionND_00002_00000,1),w-literal(C_FunctionND_00002_00004,1)}), aux11)
+reify(watched-and({w-literal(C_FunctionND_00000_00002,1),w-literal(C_FunctionND_00000_00003,1),w-literal(C_FunctionND_00006_00002,1),w-literal(C_FunctionND_00006_00003,1)}), aux12)
+reify(watched-and({w-literal(C_FunctionND_00003_00000,1),w-literal(C_FunctionND_00003_00005,1),w-literal(C_FunctionND_00001_00000,1),w-literal(C_FunctionND_00001_00005,1)}), aux13)
+reify(watched-and({w-literal(C_FunctionND_00004_00002,1),w-literal(C_FunctionND_00004_00007,1),w-literal(C_FunctionND_00006_00002,1),w-literal(C_FunctionND_00006_00007,1)}), aux14)
+reify(watched-and({w-literal(C_FunctionND_00003_00005,1),w-literal(C_FunctionND_00003_00006,1),w-literal(C_FunctionND_00007_00005,1),w-literal(C_FunctionND_00007_00006,1)}), aux15)
+reify(watched-and({w-literal(C_FunctionND_00003_00000,1),w-literal(C_FunctionND_00003_00006,1),w-literal(C_FunctionND_00002_00000,1),w-literal(C_FunctionND_00002_00006,1)}), aux16)
+reify(watched-and({w-literal(C_FunctionND_00000_00001,1),w-literal(C_FunctionND_00000_00003,1),w-literal(C_FunctionND_00005_00001,1),w-literal(C_FunctionND_00005_00003,1)}), aux17)
+reify(watched-and({w-literal(C_FunctionND_00004_00001,1),w-literal(C_FunctionND_00004_00002,1),w-literal(C_FunctionND_00000_00001,1),w-literal(C_FunctionND_00000_00002,1)}), aux18)
+reify(watched-and({w-literal(C_FunctionND_00004_00001,1),w-literal(C_FunctionND_00004_00007,1),w-literal(C_FunctionND_00005_00001,1),w-literal(C_FunctionND_00005_00007,1)}), aux19)
+reify(w-literal(C_FunctionND_00000_00001,1), aux20)
+reify(w-literal(C_FunctionND_00000_00002,1), aux21)
+reify(w-literal(C_FunctionND_00000_00003,1), aux22)
+reify(w-literal(C_FunctionND_00001_00000,1), aux23)
+reify(w-literal(C_FunctionND_00001_00004,1), aux24)
+reify(w-literal(C_FunctionND_00001_00005,1), aux25)
+reify(w-literal(C_FunctionND_00002_00000,1), aux26)
+reify(w-literal(C_FunctionND_00002_00004,1), aux27)
+reify(w-literal(C_FunctionND_00002_00006,1), aux28)
+reify(w-literal(C_FunctionND_00003_00000,1), aux29)
+reify(w-literal(C_FunctionND_00003_00005,1), aux30)
+reify(w-literal(C_FunctionND_00003_00006,1), aux31)
+reify(w-literal(C_FunctionND_00004_00001,1), aux32)
+reify(w-literal(C_FunctionND_00004_00002,1), aux33)
+reify(w-literal(C_FunctionND_00004_00007,1), aux34)
+reify(w-literal(C_FunctionND_00005_00001,1), aux35)
+reify(w-literal(C_FunctionND_00005_00003,1), aux36)
+reify(w-literal(C_FunctionND_00005_00007,1), aux37)
+reify(w-literal(C_FunctionND_00006_00002,1), aux38)
+reify(w-literal(C_FunctionND_00006_00003,1), aux39)
+reify(w-literal(C_FunctionND_00006_00007,1), aux40)
+reify(w-literal(C_FunctionND_00007_00004,1), aux41)
+reify(w-literal(C_FunctionND_00007_00005,1), aux42)
+reify(w-literal(C_FunctionND_00007_00006,1), aux43)
+watched-or({w-literal(C_FunctionND_00000_00001,1),w-literal(C_FunctionND_00001_00000,1)})
+watched-or({w-literal(C_FunctionND_00000_00002,1),w-literal(C_FunctionND_00002_00000,1)})
+watched-or({w-literal(C_FunctionND_00003_00000,1),w-literal(C_FunctionND_00000_00003,1)})
+watched-or({w-literal(C_FunctionND_00004_00001,1),w-literal(C_FunctionND_00001_00004,1)})
+watched-or({w-literal(C_FunctionND_00005_00001,1),w-literal(C_FunctionND_00001_00005,1)})
+watched-or({w-literal(C_FunctionND_00004_00002,1),w-literal(C_FunctionND_00002_00004,1)})
+watched-or({w-literal(C_FunctionND_00006_00002,1),w-literal(C_FunctionND_00002_00006,1)})
+watched-or({w-literal(C_FunctionND_00003_00005,1),w-literal(C_FunctionND_00005_00003,1)})
+watched-or({w-literal(C_FunctionND_00003_00006,1),w-literal(C_FunctionND_00006_00003,1)})
+watched-or({w-literal(C_FunctionND_00004_00007,1),w-literal(C_FunctionND_00007_00004,1)})
+watched-or({w-literal(C_FunctionND_00005_00007,1),w-literal(C_FunctionND_00007_00005,1)})
+watched-or({w-literal(C_FunctionND_00006_00007,1),w-literal(C_FunctionND_00007_00006,1)})
+reifyimply(w-literal(C_FunctionND_00001_00000,0), aux20)
+reifyimply(w-literal(C_FunctionND_00002_00000,0), aux21)
+reifyimply(w-literal(C_FunctionND_00003_00000,0), aux22)
+reifyimply(w-literal(C_FunctionND_00000_00001,0), aux23)
+reifyimply(w-literal(C_FunctionND_00004_00001,0), aux24)
+reifyimply(w-literal(C_FunctionND_00005_00001,0), aux25)
+reifyimply(w-literal(C_FunctionND_00000_00002,0), aux26)
+reifyimply(w-literal(C_FunctionND_00004_00002,0), aux27)
+reifyimply(w-literal(C_FunctionND_00006_00002,0), aux28)
+reifyimply(w-literal(C_FunctionND_00000_00003,0), aux29)
+reifyimply(w-literal(C_FunctionND_00005_00003,0), aux30)
+reifyimply(w-literal(C_FunctionND_00006_00003,0), aux31)
+reifyimply(w-literal(C_FunctionND_00001_00004,0), aux32)
+reifyimply(w-literal(C_FunctionND_00002_00004,0), aux33)
+reifyimply(w-literal(C_FunctionND_00007_00004,0), aux34)
+reifyimply(w-literal(C_FunctionND_00001_00005,0), aux35)
+reifyimply(w-literal(C_FunctionND_00003_00005,0), aux36)
+reifyimply(w-literal(C_FunctionND_00007_00005,0), aux37)
+reifyimply(w-literal(C_FunctionND_00002_00006,0), aux38)
+reifyimply(w-literal(C_FunctionND_00003_00006,0), aux39)
+reifyimply(w-literal(C_FunctionND_00007_00006,0), aux40)
+reifyimply(w-literal(C_FunctionND_00004_00007,0), aux41)
+reifyimply(w-literal(C_FunctionND_00005_00007,0), aux42)
+reifyimply(w-literal(C_FunctionND_00006_00007,0), aux43)
+sumleq([aux0,aux1,aux2,aux3,aux4,aux5,aux6,aux7],p)
+sumgeq([aux0,aux1,aux2,aux3,aux4,aux5,aux6,aux7],p)
+sumleq([aux8,aux9,aux10,aux11,aux12,aux13,aux14,aux15,aux16,aux17,aux18,aux19],f)
+sumgeq([aux8,aux9,aux10,aux11,aux12,aux13,aux14,aux15,aux16,aux17,aux18,aux19],f)
+**EOF**

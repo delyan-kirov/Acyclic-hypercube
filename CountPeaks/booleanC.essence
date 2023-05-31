@@ -25,7 +25,7 @@ such that
 
 $Directed
 
-forAll i,j: N. (lattice((i,j)) = 1) <-> ((C((i,j)) = 1) \/ (C((j,i)) = 1)),
+forAll i,j: N. (lattice((i,j)) = 1) /\ (i > j) <-> ((C((i,j)) = 1) \/ (C((j,i)) = 1)),
 
 forAll i,j: N. (C((i,j)) = 1) -> (C((j,i)) = 0),
 
@@ -50,7 +50,13 @@ $RSE faces
 
 
 
+$ Acyclicity
 
-p = 54,
+forAll u,v,w : N . C(u,v) = 1 /\ C(v,w) = 1 -> C(u,w) = 1,
 
-f = 342523,
+
+
+
+p = 2,
+
+f = 2,

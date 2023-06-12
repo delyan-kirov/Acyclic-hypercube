@@ -25,7 +25,7 @@ In this case we are not given the underlying graph, but instead we just ask the 
 find a DAG which is also a hypercube. The problem here is generating the hypercube while
 also looking for patterns. 
 
-A hypercube Q(n) can be described as a graph which has 2^n vertices, every vertex has degree
+A hypercube Q(n) can be described as a graph which has $2^n$ vertices, every vertex has degree
 n and no cycles of odd length. A directed hypercube should therefore also have an underlying
 graph that respects these criteria. Unfortunately, this model blows up. 
 

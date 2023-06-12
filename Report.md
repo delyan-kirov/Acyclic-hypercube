@@ -1,4 +1,4 @@
-### Report on the state of the boolean lattice problem
+# Report on the state of the boolean lattice problem
 
 Here is a summary of what I've tried for the past while. 
 
@@ -13,13 +13,13 @@ symmetric solutions from the search. Deleting symmetric solutions seems easy tho
 
 ## Generating the tables from the paper
 
-# Method 1 - Using the boolean lattice
+### Method 1 - Using the boolean lattice
 
 The idea here is to use the boolean lattice model to generate the underlying graph and then
 direct the edges. This was done by generating the lattice in python and then directing the 
 edges in the SAT solver. The problem here is that prohibiting cycles is difficult this way.
 
-# Method 2 - Generating the DAG without the underlying graph
+### Method 2 - Generating the DAG without the underlying graph
 
 In this case we are not given the underlying graph, but instead we just ask the solver to 
 find a DAG which is also a hypercube. The problem here is generating the hypercube while
@@ -29,7 +29,7 @@ A hypercube Q(n) can be described as a graph which has 2^n vertices, every verte
 n and no cycles of odd length. A directed hypercube should therefore also have an underlying
 graph that respects these criteria. Unfortunately, this model blows up. 
 
-# Method 3 - Generating the DAG as a boolean algebra
+### Method 3 - Generating the DAG as a boolean algebra
 
 Here, I use the definition of a boolean algebra to generate the graph and look for the patterns.
 Again, The model seems to get too big for the solver to handle. 

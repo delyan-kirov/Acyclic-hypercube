@@ -17,8 +17,6 @@ This will automatically activate the local python environment hypercube. You can
 1. Minion
 2. SavileRow
 3. Conjure
-4. GAP for visualization?
+4. GAP for visualization
 
-# ToDo:
-1. Test the model for mistakes.
-2. Add a break cycles clause. Perhaps implement something better?
+

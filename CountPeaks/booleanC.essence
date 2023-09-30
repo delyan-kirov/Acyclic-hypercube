@@ -1,0 +1,69 @@
+language ESSENCE 2.4.0
+
+
+
+
+given n : int,
+
+letting N be domain int(0..n-1),
+
+given lattice : function (total) (N, N) --> int(0..1)
+
+find C : function (total) (N,N) --> int(0..1)
+
+
+
+
+find p: N
+
+find f: int(1..n*n*n*n)
+
+such that
+
+
+
+
+$Directed
+
+forAll i,j: N. (lattice((i,j)) = 1) <-> ((C((i,j)) = 1) \/ (C((j,i)) = 1)),
+
+forAll i,j: N. (C((i,j)) = 1) -> (C((j,i)) = 0),
+
+
+
+
+$Peaks
+
+
+
+
+(sum a:N. toInt(forAll k:N. (C((a,k)) = 0) ) ) = p /\
+
+
+
+
+$RSE faces
+
+(sum a1, a2, a3, a4 : N. toInt( (a2 < a3) /\ (a1 < a4) /\ allDiff([a1,a2,a3,a4]) /\ 
+
+((C((a1, a2)) = 1) /\ (C((a1, a3)) = 1) /\ (C((a4, a2)) = 1) /\ (C((a4, a3)) = 1) ) )) = f,
+
+
+
+$ Acyclicity
+
+
+p = 2,
+
+f = 1,
+
+!(exists a00, a01, a02, a03 :N. ((C((a00,a01)) = 1) /\ (C((a01,a02)) = 1) /\ (C((a02,a03)) = 1) /\ (C((a03,a00)) = 1)) /\ 
+ !((C((a03,a02)) = 1) /\ (C((a02,a01)) = 1) /\ (C((a01,a00)) = 1) /\ (C((a00,a03)) = 1))), 
+ 
+!(exists a10, a11, a12, a13, a14, a15 :N. ((C((a10,a11)) = 1) /\ (C((a11,a12)) = 1) /\ (C((a12,a13)) = 1) /\ (C((a13,a14)) = 1) /\ (C((a14,a15)) = 1) /\ (C((a15,a10)) = 1)) /\ 
+ !((C((a15,a14)) = 1) /\ (C((a14,a13)) = 1) /\ (C((a13,a12)) = 1) /\ (C((a12,a11)) = 1) /\ (C((a11,a10)) = 1) /\ (C((a10,a15)) = 1))), 
+ 
+!(exists a20, a21, a22, a23, a24, a25, a26, a27 :N. ((C((a20,a21)) = 1) /\ (C((a21,a22)) = 1) /\ (C((a22,a23)) = 1) /\ (C((a23,a24)) = 1) /\ (C((a24,a25)) = 1) /\ (C((a25,a26)) = 1) /\ (C((a26,a27)) = 1) /\ (C((a27,a20)) = 1)) /\ 
+ !((C((a27,a26)) = 1) /\ (C((a26,a25)) = 1) /\ (C((a25,a24)) = 1) /\ (C((a24,a23)) = 1) /\ (C((a23,a22)) = 1) /\ (C((a22,a21)) = 1) /\ (C((a21,a20)) = 1) /\ (C((a20,a27)) = 1))), 
+ 
+

@@ -1,14 +1,62 @@
 language ESSENCE 2.4.0
 
+
+
+
 given n : int,
+
 letting N be domain int(0..n-1),
+
 given lattice : function (total) (N, N) --> int(0..1)
+
 find C : function (total) (N,N) --> int(0..1)
+
+
+
+
+find p: N
+
+find f: int(1..n*n*n*n)
 
 such that
 
+
+
+
 $Directed
+
 forAll i,j: N. (lattice((i,j)) = 1) <-> ((C((i,j)) = 1) \/ (C((j,i)) = 1)),
+
 forAll i,j: N. (C((i,j)) = 1) -> (C((j,i)) = 0),
 
+
+
+
 $Peaks
+
+
+
+
+(sum a:N. toInt(forAll k:N. (C((a,k)) = 0) ) ) = p /\
+
+
+
+
+$RSE faces
+
+(sum a1, a2, a3, a4 : N. toInt( (a2 < a3) /\ (a1 < a4) /\ allDiff([a1,a2,a3,a4]) /\ 
+
+((C((a1, a2)) = 1) /\ (C((a1, a3)) = 1) /\ (C((a4, a2)) = 1) /\ (C((a4, a3)) = 1) ) )) = f,
+
+
+
+$ Acyclicity
+
+!( exists a1, a2, a3, a4 : N.
+
+(C((a1, a2)) = 1) /\ (C((a2, a3)) = 1) /\ (C((a3, a4)) = 1) /\ (C((a4, a1)) = 1) ),
+
+
+p = 2,
+
+f = 1,
